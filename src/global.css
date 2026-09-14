@@ -1,0 +1,81 @@
+@keyframes badge-in {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform:
+      translate(var(--badge-dx, 0), var(--badge-dy, 12px))
+      rotate(var(--badge-rot, -8deg))
+      scale(0.86);
+  }
+  60% { opacity: 1; filter: blur(0); }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+}
+
+/* Uses translate/rotate, NOT transform — no conflict with badge-in */
+@keyframes badge-drift {
+  0%, 100% { translate: 0 0;             rotate: 0deg;   }
+  33%      { translate: var(--drift-x, 3px) -4px; rotate: 0.6deg;  }
+  66%      { translate: calc(var(--drift-x, 3px) * -1) -2px; rotate: -0.6deg; }
+}
+
+.animate-badge {
+  animation:
+    badge-in    780ms cubic-bezier(0.22, 1, 0.36, 1) both,
+    badge-drift 5.2s ease-in-out infinite;
+  will-change: transform, translate, rotate, opacity, filter;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-badge {
+    animation: none !important;
+    filter: none !important;
+  }
+}
+
+
+/* Hero image: blurred + zoomed-in → sharp + natural scale */
+@keyframes hero-image-in {
+  0% {
+    opacity: 0;
+    filter: blur(18px);
+    transform: scale(1.08);
+  }
+  55% {
+    opacity: 1;              /* resolve opacity early — blur carries the rest */
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+/* Gradient veil fades in slightly behind the image */
+@keyframes hero-veil-in {
+  0%   { opacity: 0; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.animate-hero-image {
+  animation: hero-image-in 1100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform, filter, opacity;
+}
+
+.animate-hero-veil {
+  animation: hero-veil-in 900ms ease-out 200ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-image,
+  .animate-hero-veil {
+    animation: none !important;
+    filter: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
