@@ -60,7 +60,7 @@ export function FeatureSplitSection({
 }, [withIllustration]);
 
   return (
-    <section className="bg-white px-6 py-16 lg:px-8">
+    <section className="bg-white px-6 py-16 lg:px-8 min-h-92.5">
       <div
         className={`mx-auto h-full flex max-w-7xl flex-col gap-12 ${
           reverse ? "lg:flex-row-reverse" : "lg:flex-row"
@@ -88,7 +88,7 @@ export function FeatureSplitSection({
               ref={stageRef}
               className={`tl-stage ${
                 isOpen ? "is-open" : ""
-              } pointer-events-none absolute top-10 right-[-35%] w-40 sm:w-44`}
+              } pointer-events-none absolute top-10 right-0 lg:right-[-35%] w-40 sm:w-44`}
               aria-hidden="true"
             >
               <svg width="100%" height="100%" viewBox="0 0 199 277" fill="none" xmlns="http://www.w3.org/2000/svg">
