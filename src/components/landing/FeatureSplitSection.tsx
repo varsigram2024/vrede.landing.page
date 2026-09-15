@@ -60,7 +60,7 @@ export function FeatureSplitSection({
 }, [withIllustration]);
 
   return (
-    <section className="bg-white px-6 py-16 lg:px-8 min-h-92.5">
+    <section className="px-6 py-8 bg-stone-50 lg:px-8 min-h-92.5">
       <div
         className={`mx-auto h-full flex max-w-7xl flex-col gap-12 ${
           reverse ? "lg:flex-row-reverse" : "lg:flex-row"
@@ -76,11 +76,11 @@ export function FeatureSplitSection({
 
         {/* --- Mockup + overlay --- */}
         <div className="flex h-full flex-1 items-start justify-center">
-          <div className="relative inline-block">
+          <div className="relative flex justify-center items-center">
             <img
               src={mockupImage}
               alt={title}
-              className="max-w-[20rem] rounded-2xl shadow-lg"
+              className="w-2/3 lg:w-[20rem]"
             />
 
           {withIllustration && (
@@ -88,7 +88,7 @@ export function FeatureSplitSection({
               ref={stageRef}
               className={`tl-stage ${
                 isOpen ? "is-open" : ""
-              } pointer-events-none absolute top-10 right-0 lg:right-[-35%] w-40 sm:w-44`}
+              } pointer-events-none absolute bottom-0 right-[0%] lg:right-[-35%] w-25 lg:w-44`}
               aria-hidden="true"
             >
               <svg width="100%" height="100%" viewBox="0 0 199 277" fill="none" xmlns="http://www.w3.org/2000/svg">

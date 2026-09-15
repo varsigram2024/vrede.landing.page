@@ -15,8 +15,8 @@ const badgeData = [
 
 export function HeroSection() {
   return (
-    <section className="bg-stone-50 px-6 py-16 lg:px-8 lg:py-24">
-      <div className="mx-auto flex flex-col items-center gap-12 text-center">
+    <section className="bg-stone-50 px-6 py-8 lg:px-8 lg:py-12">
+      <div className="mx-auto flex flex-col items-center gap-8 text-center">
         <SectionHeading
           align="center"
           eyebrow=""
@@ -31,8 +31,8 @@ export function HeroSection() {
             </PrimaryButton>
         </div>
 
-        <div className="relative w-full bg-white shadow-[0_24px_60px_rgba(15,23,42,0.10)]">
-          <div className="animate-hero-veil absolute inset-0" />
+        <div className="relative w-full bg-transparent shadow-[0_24px_60px_rgba(15,23,42,0.10)]">
+          <div className="animate-hero-veil absolute inset-0 bg-transparent" />
 
           <img
             src="/images/joyful-businessman-reacting-good-news-1-5695-25933.png"
@@ -49,7 +49,7 @@ export function HeroSection() {
             return (
               <div
                 key={badge.label}
-                className="animate-badge absolute flex max-w-[clamp(90px,18vw,300px)] origin-center items-center gap-1.5 rounded-md bg-white px-1.5 py-2 text-[clamp(0.3rem,1.4vw,1.25rem)] font-semibold shadow-lg shadow-black/5 backdrop-blur-sm sm:gap-2 sm:rounded-2xl sm:px-3 sm:py-2.5 md:px-4 md:py-3"
+                className="animate-badge absolute flex max-w-[clamp(120px,18vw,300px)] origin-center items-center gap-1.5 rounded-md bg-white px-0.5 py-1 sm:gap-2 sm:rounded-2xl sm:px-1.5 sm:py-2 md:px-4 md:py-2 text-[clamp(0.3rem,1.4vw,1.25rem)] font-semibold shadow-lg shadow-black/5 backdrop-blur-sm "
                 style={{
                   ...pos,
                   color: "black",
