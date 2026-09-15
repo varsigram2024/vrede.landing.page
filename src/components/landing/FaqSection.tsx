@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SectionHeading } from "./SectionHeading";
+import { ScrollReveal } from "../ScrollReveal";
 
 const faqs = [
   {
@@ -24,17 +25,21 @@ export function FaqSection() {
   return (
     <section className="bg-white px-6 py-16 lg:px-8">
       <div className="mx-auto max-w-4xl">
-        <SectionHeading
-          align="center"
-          eyebrow="Support"
-          title="Frequently Asked Questions"
-          description="A few quick answers about how Vrede fits into modern learning workflows."
-          className="mx-auto"
-        />
+        <ScrollReveal>
+          <SectionHeading
+            align="center"
+            eyebrow="Support"
+            title="Frequently Asked Questions"
+            description="A few quick answers about how Vrede fits into modern learning workflows."
+            className="mx-auto"
+          />
+        </ScrollReveal>
 
         <div className="mt-10 space-y-4">
           {faqs.map((faq, index) => (
-            <FaqItem key={faq.question} faq={faq} defaultOpen={index === 0} />
+            <ScrollReveal key={faq.question} delay={index * 90}>
+              <FaqItem faq={faq} defaultOpen={index === 0} />
+            </ScrollReveal>
           ))}
         </div>
       </div>

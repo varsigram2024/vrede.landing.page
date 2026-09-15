@@ -65,3 +65,40 @@ img { max-width: 100%; height: auto; }
   .tl-stage > svg > g > g:nth-child(-n + 5) { transition-duration: 1ms; transition-delay: 0ms; transform: none; }
   .tl-stage.is-open > svg > g > g:nth-child(6) { transform: none; }
 }
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-reveal-left {
+  transform: translate3d(-32px, 0, 0);
+}
+
+.scroll-reveal-right {
+  transform: translate3d(32px, 0, 0);
+}
+
+.scroll-reveal-down {
+  transform: translate3d(0, -24px, 0);
+}
+
+.scroll-reveal-fade {
+  transform: none;
+}
+
+.scroll-reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { SectionHeading } from "./SectionHeading";
+import { ScrollReveal } from "../ScrollReveal";
 
 type FeatureSplitSectionProps = {
   title: string;
@@ -66,31 +67,41 @@ export function FeatureSplitSection({
           reverse ? "lg:flex-row-reverse" : "lg:flex-row"
         } lg:items-center`}
       >
-        <div className="flex-1 flex py-4 items-center justify-center">
-          <SectionHeading
-            title={title}
-            description={description}
-            className="items-center justify-center"
-          />
-        </div>
+        <ScrollReveal
+          direction={reverse ? "right" : "left"}
+          className="flex-1"
+        >
+          <div className="flex items-center justify-center py-4">
+            <SectionHeading
+              title={title}
+              description={description}
+              className="items-center justify-center"
+            />
+          </div>
+        </ScrollReveal>
 
         {/* --- Mockup + overlay --- */}
-        <div className="flex h-full flex-1 items-start justify-center">
-          <div className="relative flex justify-center items-center">
-            <img
-              src={mockupImage}
-              alt={title}
-              className="w-2/3 lg:w-[20rem]"
-            />
+        <ScrollReveal
+          direction={reverse ? "left" : "right"}
+          delay={150}
+          className="flex-1"
+        >
+          <div className="flex h-full items-start justify-center">
+            <div className="relative flex items-center justify-center">
+              <img
+                src={mockupImage}
+                alt={title}
+                className="w-2/3 lg:w-[20rem]"
+              />
 
-          {withIllustration && (
-            <div
-              ref={stageRef}
-              className={`tl-stage ${
-                isOpen ? "is-open" : ""
-              } pointer-events-none absolute bottom-0 right-[0%] lg:right-[-35%] w-25 lg:w-44`}
-              aria-hidden="true"
-            >
+              {withIllustration && (
+                <div
+                  ref={stageRef}
+                  className={`tl-stage ${
+                    isOpen ? "is-open" : ""
+                  } pointer-events-none absolute bottom-0 right-[0%] w-25 lg:right-[-35%] lg:w-44`}
+                  aria-hidden="true"
+                >
               <svg width="100%" height="100%" viewBox="0 0 199 277" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g filter="url(#filter0_dd_5659_23392)">
               <g>
@@ -230,10 +241,11 @@ export function FeatureSplitSection({
               </defs>
               </svg>
 
+                </div>
+              )}
             </div>
-             )}
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

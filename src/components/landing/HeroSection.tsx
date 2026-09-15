@@ -1,5 +1,6 @@
 import { PrimaryButton } from "./PrimaryButton";
 import { SectionHeading } from "./SectionHeading";
+import { ScrollReveal } from "../ScrollReveal";
 
 const badgeData = [
   { label: "Workspace", accent: "#FF383C66", bg: "rgba(0,136,255,0.10)" },
@@ -17,24 +18,23 @@ export function HeroSection() {
   return (
     <section className="bg-stone-50 px-6 py-8 lg:px-8 lg:py-12">
       <div className="mx-auto flex flex-col items-center gap-8 text-center">
-        <SectionHeading
-          align="center"
-          eyebrow=""
-          title="One workspace for every learning experience"
-          description="Vrede brings everything you need to teach and manage your classes from start to finish into one place, helping you save time and effort by eliminating the need to switch between multiple tools."
-        />
+        <ScrollReveal>
+          <SectionHeading
+            align="center"
+            eyebrow=""
+            title="One workspace for every learning experience"
+            description="Vrede brings everything you need to teach and manage your classes from start to finish into one place."
+          />
+        </ScrollReveal>
 
-        <div className="gap-8 w-full flex flex-wrap items-center justify-center sm:flex">
-            <PrimaryButton className="shadow-lg shadow-[#750015]/15 w-full md:w-auto">
-            Get Early Access
-            <span aria-hidden>→</span>
-            </PrimaryButton>
-        </div>
+        <ScrollReveal delay={150} direction="up">
+          <PrimaryButton>Get Early Access <span aria-hidden>→</span></PrimaryButton>
+        </ScrollReveal>
 
-        <div className="relative w-full bg-transparent shadow-[0_24px_60px_rgba(15,23,42,0.10)]">
-          <div className="animate-hero-veil absolute inset-0 bg-transparent" />
-
-          <img
+        <ScrollReveal delay={250} direction="fade">
+          <div className="relative w-full bg-transparent shadow-[0_24px_60px_rgba(15,23,42,0.10)]">
+            <div className="animate-hero-veil absolute inset-0 bg-transparent" />
+             <img
             src="/images/joyful-businessman-reacting-good-news-1-5695-25933.png"
             alt="Educator using Vrede"
             className="animate-hero-image rounded-4xl w-full object-cover object-center"
@@ -80,7 +80,8 @@ export function HeroSection() {
               </div>
             );
           })}
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
