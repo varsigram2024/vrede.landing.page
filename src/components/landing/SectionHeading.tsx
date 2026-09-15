@@ -13,7 +13,7 @@ export function SectionHeading({
   align = "left",
   className = "",
 }: SectionHeadingProps) {
-  const alignment = align === "center" ? "items-center text-center" : "items-start text-left";
+  const alignment = align === "center" ? "items-center text-center" : "items-center text-center lg:items-start lg:text-left";
 
   return (
     <div className={`flex max-w-4xl flex-col gap-4 ${alignment} ${className}`}>

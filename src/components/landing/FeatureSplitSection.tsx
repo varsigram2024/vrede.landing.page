@@ -60,7 +60,7 @@ export function FeatureSplitSection({
 }, [withIllustration]);
 
   return (
-    <section className="bg-white px-6 py-16 lg:px-8 overflow-hidden">
+    <section className="bg-white px-6 py-16 lg:px-8">
       <div
         className={`mx-auto h-full flex max-w-7xl flex-col gap-12 ${
           reverse ? "lg:flex-row-reverse" : "lg:flex-row"
@@ -80,7 +80,7 @@ export function FeatureSplitSection({
             <img
               src={mockupImage}
               alt={title}
-              className="max-w-sm rounded-2xl shadow-lg"
+              className="max-w-[20rem] rounded-2xl shadow-lg"
             />
 
           {withIllustration && (

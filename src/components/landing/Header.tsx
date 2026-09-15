@@ -14,7 +14,7 @@ export function Header() {
           </div>
         </div>
 
-        <PrimaryButton>
+        <PrimaryButton className="hidden! md:inline-flex!">
           Get Early Access
           <span aria-hidden>→</span>
         </PrimaryButton>

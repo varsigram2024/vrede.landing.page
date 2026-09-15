@@ -21,18 +21,18 @@ export function HeroSection() {
           align="center"
           eyebrow=""
           title="One workspace for every learning experience"
-          description="Vrede brings class management, announcements, live sessions, tasks, and learning resources into one place so educators can spend less time switching tools and more time teaching."
+          description="Vrede brings everything you need to teach and manage your classes from start to finish into one place, helping you save time and effort by eliminating the need to switch between multiple tools."
         />
 
-        <div className="gap-8 flex flex-wrap items-center justify-center sm:flex">
-            <PrimaryButton className="shadow-lg shadow-[#750015]/15">
+        <div className="gap-8 w-full flex flex-wrap items-center justify-center sm:flex">
+            <PrimaryButton className="shadow-lg shadow-[#750015]/15 w-full md:w-auto">
             Get Early Access
             <span aria-hidden>→</span>
             </PrimaryButton>
         </div>
 
-        <div className="relative w-full border border-stone-200 bg-white shadow-[0_24px_60px_rgba(15,23,42,0.10)]">
-          <div className="animate-hero-veil absolute inset-0 bg-linear-to-br from-[#750015]/10 via-transparent to-[#ff6682]/15" />
+        <div className="relative w-full bg-white shadow-[0_24px_60px_rgba(15,23,42,0.10)]">
+          <div className="animate-hero-veil absolute inset-0" />
 
           <img
             src="/images/joyful-businessman-reacting-good-news-1-5695-25933.png"
@@ -49,7 +49,7 @@ export function HeroSection() {
             return (
               <div
                 key={badge.label}
-                className="animate-badge absolute flex max-w-[clamp(90px,18vw,190px)] origin-center items-center gap-1.5 rounded-md bg-white px-1.5 py-2 text-[clamp(0.55rem,1.4vw,1rem)] font-semibold shadow-lg shadow-black/5 backdrop-blur-sm sm:gap-2 sm:rounded-2xl sm:px-3 sm:py-2.5 md:px-4 md:py-3"
+                className="animate-badge absolute flex max-w-[clamp(90px,18vw,300px)] origin-center items-center gap-1.5 rounded-md bg-white px-1.5 py-2 text-[clamp(0.3rem,1.4vw,1.25rem)] font-semibold shadow-lg shadow-black/5 backdrop-blur-sm sm:gap-2 sm:rounded-2xl sm:px-3 sm:py-2.5 md:px-4 md:py-3"
                 style={{
                   ...pos,
                   color: "black",
@@ -76,7 +76,7 @@ export function HeroSection() {
                 />
                 </div>
 
-                <span className="">{badge.label}</span>
+                <span className="text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem]">{badge.label}</span>
               </div>
             );
           })}
