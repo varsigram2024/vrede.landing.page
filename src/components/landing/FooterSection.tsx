@@ -1,7 +1,7 @@
 import { PrimaryButton } from "./PrimaryButton";
 import { ScrollReveal } from "../ScrollReveal";
 
-export function FooterSection() {
+export function FooterSection({ onEarlyAccess }: { onEarlyAccess: () => void }) {
   return (
     <footer className="bg-[#750015] px-6 py-16 text-white lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 text-center">
@@ -15,7 +15,7 @@ export function FooterSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={150}>
-          <PrimaryButton variant="ghost" className="border-white text-white hover:bg-white/10">
+          <PrimaryButton onClick={onEarlyAccess} variant="ghost" className="border-white text-white hover:bg-white/10">
             Request Invitation
             <span aria-hidden>→</span>
           </PrimaryButton>

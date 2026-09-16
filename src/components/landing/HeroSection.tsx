@@ -14,7 +14,7 @@ const badgeData = [
 
 
 
-export function HeroSection() {
+export function HeroSection({ onEarlyAccess }: { onEarlyAccess: () => void }) {
   return (
     <section className="bg-stone-50 px-6 py-8 lg:px-8 lg:py-12">
       <div className="mx-auto flex flex-col items-center gap-8 text-center">
@@ -28,7 +28,7 @@ export function HeroSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={150} direction="up">
-          <PrimaryButton>Get Early Access <span aria-hidden>→</span></PrimaryButton>
+          <PrimaryButton onClick={onEarlyAccess}>Get Early Access <span aria-hidden>→</span></PrimaryButton>
         </ScrollReveal>
 
         <ScrollReveal delay={250} direction="fade">

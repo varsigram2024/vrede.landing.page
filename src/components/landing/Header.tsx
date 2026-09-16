@@ -1,7 +1,7 @@
 import { PrimaryButton } from "./PrimaryButton";
 import logo from "/images/logo.svg";
 
-export function Header() {
+export function Header({ onEarlyAccess }: { onEarlyAccess: () => void }) {
   return (
     <header className="sticky top-0 z-50 border-b border-stone-200/70 bg-white/80 backdrop-blur-md">
       <div className="mx-auto flex w-full items-center justify-between px-6 py-4 lg:px-8">
@@ -14,7 +14,7 @@ export function Header() {
           </div>
         </div>
 
-        <PrimaryButton className="hidden! md:inline-flex!">
+        <PrimaryButton onClick={onEarlyAccess} className="hidden! md:inline-flex!">
           Get Early Access
           <span aria-hidden>→</span>
         </PrimaryButton>

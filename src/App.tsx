@@ -1,15 +1,23 @@
+import { useState } from "react";
 import { FaqSection } from "./components/landing/FaqSection";
 import { FeatureSplitSection } from "./components/landing/FeatureSplitSection";
 import { FooterSection } from "./components/landing/FooterSection";
 import { Header } from "./components/landing/Header";
 import { HeroSection } from "./components/landing/HeroSection";
 import { TeachingCardsSection } from "./components/landing/TeachingCardsSection";
+import { EarlyAccessModal } from "./components/landing/EarlyAccessModal";
 
 export default function App() {
+  const [isEarlyAccessOpen, setIsEarlyAccessOpen] = useState(false);
+
+  if (isEarlyAccessOpen) {
+    return <EarlyAccessModal onClose={() => setIsEarlyAccessOpen(false)} />;
+  }
+
   return (
     <main className="min-h-screen bg-stone-50 text-stone-950">
-      <Header />
-      <HeroSection />
+      <Header onEarlyAccess={() => setIsEarlyAccessOpen(true)} />
+      <HeroSection onEarlyAccess={() => setIsEarlyAccessOpen(true)} />
 
 
       <FeatureSplitSection
@@ -36,7 +44,7 @@ export default function App() {
 
       <TeachingCardsSection />
       <FaqSection />
-      <FooterSection />
+      <FooterSection onEarlyAccess={() => setIsEarlyAccessOpen(true)} />
     </main>
   );
 }
