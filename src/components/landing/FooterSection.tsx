@@ -4,7 +4,7 @@ import logo from "/images/logo.svg";
 
 export function FooterSection({ onEarlyAccess }: { onEarlyAccess: () => void }) {
   return (
-    <footer className="bg-[#750015] px-6 py-16 text-white lg:px-8">
+    <footer className="bg-[#750015] px-6 py-16 text-white lg:px-8 relative">
       <div 
       className="pointer-events-none absolute inset-0 w-full h-full opacity-100 animate-pulse-slow"
         style={{
