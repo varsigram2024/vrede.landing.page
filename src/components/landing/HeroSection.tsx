@@ -31,13 +31,13 @@ export function HeroSection({ onEarlyAccess }: { onEarlyAccess: () => void }) {
           <PrimaryButton onClick={onEarlyAccess}>Get Early Access <span aria-hidden>→</span></PrimaryButton>
         </ScrollReveal>
 
-        <ScrollReveal delay={250} direction="fade">
+        <ScrollReveal delay={300} direction="fade">
           <div className="relative w-full bg-transparent shadow-[0_24px_60px_rgba(15,23,42,0.10)]">
             <div className="animate-hero-veil absolute inset-0 bg-transparent" />
              <img
             src="/images/joyful-businessman-reacting-good-news-1-5695-25933.png"
             alt="Educator using Vrede"
-            className="animate-hero-image rounded-4xl w-full object-cover object-center"
+            className="animate-hero-image hero-image-in rounded-4xl w-full object-cover object-center"
           />
 
           {badgeData.map((badge, index) => {

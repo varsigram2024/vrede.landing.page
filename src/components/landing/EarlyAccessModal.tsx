@@ -220,25 +220,12 @@ function RoleSelection({
       </button>
 
       <div className="mx-auto mt-24 max-w-[492px] rounded-2xl bg-white p-2 shadow-[0_12px_30px_rgba(0,0,0,0.12)] sm:mt-28 sm:p-4">
-        <h1 className="text-[28px] text-center font-semibold tracking-[-0.02em]">
+        <h1 className="text-[22px] text-center font-semibold tracking-[-0.02em]">
           Are you a tutor or learner?
         </h1>
 
         <div className="mt-7 grid grid-cols-2 gap-4">
-        <button
-          type="button"
-          onClick={() => onSelect("learner")}
-          aria-pressed={selectedRole === "learner"}
-          className={`relative flex items-center gap-3 rounded-xl border p-0.4 text-left transition sm:p-4 ${
-            selectedRole === "learner"
-              ? "border-[#8B0D16] bg-[#fff0f2]"
-              : "border-[#d9d9d9] bg-white hover:border-[#8B0D16]/60"
-          }`}
-        >
-          <span className={`absolute left-2.5 top-2.5 size-3 rounded-full border ${selectedRole === "learner" ? "border-[#8B0D16] bg-[#8B0D16]" : "border-[#bdbdbd]"}`} />
-          <img src="/images/svg/learner.svg" alt="" className="ml-5 size-12 object-contain sm:size-16" />
-          <span className="text-[8px] sm:text-[12px] font-semibold">Learner</span>
-        </button>
+        
 
         <button
           type="button"
@@ -250,9 +237,29 @@ function RoleSelection({
               : "border-[#d9d9d9] bg-white hover:border-[#8B0D16]/60"
           }`}
         >
-          <span className={`absolute left-2.5 top-2.5 size-3 rounded-full border ${selectedRole === "tutor" ? "border-[#8B0D16] bg-[#8B0D16]" : "border-[#bdbdbd]"}`} />
-          <img src="/images/svg/tutor.svg" alt="" className="ml-5 size-12 object-contain sm:size-16" />
-          <span className="text-[8px] sm:text-[12px] font-semibold">Tutor</span>
+          <span className={`absolute left-2.5 top-2.5 size-3 rounded-full border ${selectedRole === "tutor" ? "border-[#8B0D16] bg-[#bdbdbd]" : "border-[#bdbdbd]"}`} >
+            <span className={`${selectedRole === "tutor" ? "absolute left-1/2 top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8B0D16]" : "absolute left-1/2 top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-trasnparent"} `}></span>
+          </span>
+          <img src="/images/svg/tutor.svg" alt="" className=" size-12 object-contain sm:size-16" />
+          <span className="text-[10px] sm:text-[18px] font-semibold">Tutor</span>
+        </button>
+
+
+        <button
+          type="button"
+          onClick={() => onSelect("learner")}
+          aria-pressed={selectedRole === "learner"}
+          className={`relative flex items-center gap-3 rounded-xl border p-3 text-left transition sm:p-4 ${
+            selectedRole === "learner"
+              ? "border-[#8B0D16] bg-[#fff0f2]"
+              : "border-[#d9d9d9] bg-white hover:border-[#8B0D16]/60"
+          }`}
+        >
+          <span className={`absolute left-2.5 top-2.5 size-3 rounded-full border ${selectedRole === "learner" ? "border-[#8B0D16] bg-[#bdbdbd]" : "border-[#bdbdbd]"}`} > 
+            <span className={`${selectedRole === "learner" ? "absolute left-1/2 top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8B0D16]" : "absolute left-1/2 top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-trasnparent"} `}></span>
+             </span>
+          <img src="/images/svg/learner.svg" alt="" className=" size-12 object-contain sm:size-16" />
+          <span className="text-[10px] sm:text-[18px] font-semibold">Learner</span>
         </button>
         </div>
 

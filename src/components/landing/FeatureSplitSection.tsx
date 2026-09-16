@@ -82,7 +82,7 @@ export function FeatureSplitSection({
 
         {/* --- Mockup + overlay --- */}
         <ScrollReveal
-          direction={reverse ? "left" : "right"}
+          direction={reverse ? "up" : "up"}
           delay={150}
           className="flex-1"
         >
