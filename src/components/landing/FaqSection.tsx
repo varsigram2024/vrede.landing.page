@@ -28,9 +28,9 @@ export function FaqSection() {
         <ScrollReveal>
           <SectionHeading
             align="center"
-            eyebrow="Support"
+            eyebrow=""
             title="Frequently Asked Questions"
-            description="A few quick answers about how Vrede fits into modern learning workflows."
+            description=""
             className="mx-auto"
           />
         </ScrollReveal>
@@ -58,7 +58,7 @@ function FaqItem({ faq, defaultOpen = false }: { faq: (typeof faqs)[number]; def
     >
       <div className="flex items-center justify-between gap-4">
         <span className="text-base font-semibold text-stone-950">{faq.question}</span>
-        <span className="text-xl font-light text-stone-400">{open ? "−" : "+"}</span>
+        <span className="text-xl font-light text-stone-400">{open ? "-" : "+"}</span>
       </div>
       {open ? <p className="mt-3 text-sm leading-6 text-stone-500">{faq.answer}</p> : null}
     </button>

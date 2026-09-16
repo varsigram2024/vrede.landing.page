@@ -19,12 +19,12 @@ export function HeroSection({ onEarlyAccess }: { onEarlyAccess: () => void }) {
     <section className="bg-stone-50 px-6 py-8 lg:px-8 lg:py-12">
       <div className="mx-auto flex flex-col items-center gap-8 text-center">
         <ScrollReveal>
-          <SectionHeading
-            align="center"
-            eyebrow=""
-            title="One workspace for every learning experience"
-            description="Vrede brings everything you need to teach and manage your classes from start to finish into one place."
-          />
+         <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-stone-950 sm:text-4xl">
+          One workspace for every learning experience
+         </h1>
+        <p className="max-w-3xl text-sm pt-4 leading-6 text-stone-500 sm:text-base">
+          Vrede gives educators one place to run classes, workshops, bootcamps, training programs, and learning communities without juggling disconnected tools.
+        </p>
         </ScrollReveal>
 
         <ScrollReveal delay={150} direction="up">
@@ -35,8 +35,11 @@ export function HeroSection({ onEarlyAccess }: { onEarlyAccess: () => void }) {
           <div className="relative w-full bg-transparent shadow-[0_24px_60px_rgba(15,23,42,0.10)]">
             <div className="animate-hero-veil absolute inset-0 bg-transparent" />
              <img
-            src="/images/joyful-businessman-reacting-good-news-1-5695-25933.png"
+            src="/images/joyful-businessman-reacting-good-news-1-5695-25933.jpg"
             alt="Educator using Vrede"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
             className="animate-hero-image hero-image-in rounded-4xl w-full object-cover object-center"
           />
 
@@ -72,6 +75,8 @@ export function HeroSection({ onEarlyAccess }: { onEarlyAccess: () => void }) {
                   src={`/images/svg/hero-svg/${index + 1}.svg`}
                   alt=""
                   aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
                   className="size-2.5 shrink-0 object-contain sm:size-4 md:size-6"
                 />
                 </div>

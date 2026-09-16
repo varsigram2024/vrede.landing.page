@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { FaqSection } from "./components/landing/FaqSection";
 import { FeatureSplitSection } from "./components/landing/FeatureSplitSection";
 import { FooterSection } from "./components/landing/FooterSection";
@@ -14,12 +14,8 @@ export default function App() {
     return <EarlyAccessModal onClose={() => setIsEarlyAccessOpen(false)} />;
   }
 
-  return (
-    <main className="min-h-screen bg-stone-50 text-stone-950">
-      <Header onEarlyAccess={() => setIsEarlyAccessOpen(true)} />
-      <HeroSection onEarlyAccess={() => setIsEarlyAccessOpen(true)} />
-
-
+  const sectionContent = (
+    <>
       <FeatureSplitSection
         title="Everything your class needs, in one place."
         description="Teaching is more than delivering lessons. It is announcements, resources, live sessions, assignments, and keeping everyone aligned. Vrede brings it together so educators can focus on teaching instead of platform management."
@@ -40,11 +36,42 @@ export default function App() {
         mockupImage="/images/mockups/iphone 47.svg"
       />
 
-      
-
       <TeachingCardsSection />
       <FaqSection />
       <FooterSection onEarlyAccess={() => setIsEarlyAccessOpen(true)} />
+    </>
+  );
+
+  return (
+    <main className="min-h-screen bg-stone-50 text-stone-950">
+      <Header onEarlyAccess={() => setIsEarlyAccessOpen(true)} />
+      <HeroSection onEarlyAccess={() => setIsEarlyAccessOpen(true)} />
+      <LazyBelowFold>{sectionContent}</LazyBelowFold>
     </main>
   );
+}
+
+function LazyBelowFold({ children }: { children: ReactNode }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px 0px", threshold: 0.05 },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  return <div ref={ref}>{isVisible ? children : null}</div>;
 }

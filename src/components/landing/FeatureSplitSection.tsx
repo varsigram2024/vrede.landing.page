@@ -91,6 +91,8 @@ export function FeatureSplitSection({
               <img
                 src={mockupImage}
                 alt={title}
+                loading="lazy"
+                decoding="async"
                 className="w-2/3 lg:w-[20rem]"
               />
 
