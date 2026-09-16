@@ -21,12 +21,14 @@ export default function App() {
         description="Teaching is more than delivering lessons. It is announcements, resources, live sessions, assignments, and keeping everyone aligned. Vrede brings it together so educators can focus on teaching instead of platform management."
         mockupImage="/images/mockups/quick action overlay.png"
         withIllustration
+        bgColor="bg-[#fff]"
       />
 
       <FeatureSplitSection
         title="Everything your class needs, in one place."
         description="Teaching is more than delivering lessons. It is announcements, resources, live sessions, assignments, and keeping everyone aligned. Vrede brings it together so educators can focus on teaching instead of platform management."
         mockupImage="/images/mockups/iphone 46.svg"
+        bgColor="bg-[#FAF9F6]"
       />
 
       <FeatureSplitSection
@@ -34,6 +36,7 @@ export default function App() {
         title="Keep announcements where they'll never get lost"
         description="Ditch crowded group chats and messy email threads. Vrede keeps announcements, queries, and workspace discussions structured so critical updates stay visible and students never miss a deadline."
         mockupImage="/images/mockups/iphone 47.svg"
+        bgColor="bg-[#FFF4F6]"
       />
 
       <TeachingCardsSection />

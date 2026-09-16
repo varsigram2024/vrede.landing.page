@@ -10,6 +10,8 @@ type FeatureSplitSectionProps = {
   reverse?: boolean;
   mockupImage: string;
   withIllustration?: boolean;
+  bgColor?: string;    
+  accentColor?: string;
 };
 
 export function FeatureSplitSection({
@@ -18,6 +20,8 @@ export function FeatureSplitSection({
   reverse = false,
   mockupImage,
   withIllustration = false,
+  bgColor = "bg-white",
+  accentColor = "#FF6682", 
 }: FeatureSplitSectionProps) {
   const stageRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -61,7 +65,7 @@ export function FeatureSplitSection({
 }, [withIllustration]);
 
   return (
-    <section className="px-6 py-8 bg-stone-50 lg:px-8 min-h-92.5">
+    <section className={`px-6 pt-8 ${bgColor} lg:px-8 min-h-92.5 border-b border-stone-200`}>
       <div
         className={`mx-auto h-full flex max-w-7xl flex-col gap-12 ${
           reverse ? "lg:flex-row-reverse" : "lg:flex-row"

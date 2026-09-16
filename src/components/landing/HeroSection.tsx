@@ -27,8 +27,8 @@ export function HeroSection({ onEarlyAccess }: { onEarlyAccess: () => void }) {
         </p>
         </ScrollReveal>
 
-        <ScrollReveal delay={150} direction="up">
-          <PrimaryButton onClick={onEarlyAccess}>Get Early Access <span aria-hidden>→</span></PrimaryButton>
+        <ScrollReveal delay={150} direction="up" className="w-full sm:max-w-xs md:max-w-sm lg:max-w-md">
+          <PrimaryButton onClick={onEarlyAccess} className="w-full">Get Early Access <span aria-hidden>→</span></PrimaryButton>
         </ScrollReveal>
 
         <ScrollReveal delay={300} direction="fade">
@@ -52,7 +52,7 @@ export function HeroSection({ onEarlyAccess }: { onEarlyAccess: () => void }) {
             return (
               <div
                 key={badge.label}
-                className="animate-badge absolute flex max-w-[clamp(120px,18vw,300px)] origin-center items-center gap-1.5 rounded-md bg-white px-0.5 py-1 sm:gap-2 sm:rounded-2xl sm:px-1.5 sm:py-2 md:px-4 md:py-2 text-[clamp(0.3rem,1.4vw,1.25rem)] font-semibold shadow-lg shadow-black/5 backdrop-blur-sm "
+                className="animate-badge absolute flex max-w-[clamp(120px,18vw,300px)] origin-center items-center gap-1.5 rounded-md bg-white px-1.5 py-1 sm:gap-2 sm:rounded-2xl sm:px-1.5 sm:py-2 md:px-4 md:py-2 text-[clamp(0.3rem,1.4vw,1.25rem)] font-semibold shadow-lg shadow-black/5 backdrop-blur-sm "
                 style={{
                   ...pos,
                   color: "black",
