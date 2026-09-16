@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
 /* Hero section vertical + horizontal rhythm */
 .hero-section {
   padding: 4rem 1.5rem;      /* py-16  px-6 */

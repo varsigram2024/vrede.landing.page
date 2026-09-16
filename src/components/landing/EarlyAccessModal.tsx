@@ -220,7 +220,7 @@ function RoleSelection({
       </button>
 
       <div className="mx-auto mt-24 max-w-[492px] rounded-2xl bg-white p-2 shadow-[0_12px_30px_rgba(0,0,0,0.12)] sm:mt-28 sm:p-4">
-        <h1 className="text-[17px] font-semibold tracking-[-0.02em]">
+        <h1 className="text-[28px] text-center font-semibold tracking-[-0.02em]">
           Are you a tutor or learner?
         </h1>
 
@@ -289,7 +289,7 @@ function LearnerForm({
   submissionError: string;
 }) {
   return (
-    <div className="mx-auto max-w-[492px] items-center justify-center rounded-2xl p-2 shadow-[0_12px_30px_rgba(0,0,0,0.12)] sm:p-4">
+    <div className="mx-auto mt-24 max-w-[492px] items-center justify-center rounded-2xl p-2 shadow-[0_12px_30px_rgba(0,0,0,0.12)] sm:p-4">
       <ScreenHeader
         title="Get Early Access"
         description="Join forward-thinking educators running classes on Vrede."
@@ -349,7 +349,7 @@ function TutorDetailsForm({
   onBack: () => void;
 }) {
   return (
-    <div>
+    <div className="mx-auto mt-24 max-w-[492px] items-center justify-center rounded-2xl p-2 shadow-[0_12px_30px_rgba(0,0,0,0.12)] sm:p-4">
       <ScreenHeader
         title="Get Early Access"
         description="Join forward-thinking educators running classes on Vrede."
@@ -453,7 +453,7 @@ function TutorProfileForm({
   submissionError: string;
 }) {
   return (
-    <div>
+    <div className="mx-auto mt-24 max-w-[492px] items-center justify-center rounded-2xl p-2 shadow-[0_12px_30px_rgba(0,0,0,0.12)] sm:p-4">
       <ScreenHeader
         title="Quick Questions"
         description="Join forward-thinking educators running classes on Vrede."
