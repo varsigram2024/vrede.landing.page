@@ -146,7 +146,7 @@ const handleSubmit = async (
         {step === "submitted" ? (
           <SubmittedScreen onClose={onClose} />
         ) : (
-          <div className="pt-[130px] pb-10">
+          <div className="pt-10 pb-10 flex flex-col items-center justify-center">
             {step === "role" && (
               <RoleSelection
                 onSelect={selectRole}
@@ -209,17 +209,17 @@ function RoleSelection({
   selectedRole: Role | null;
 }) {
   return (
-    <div className="w-full pt-6 sm:pt-12">
+    <div className="w-full">
       <button
         type="button"
         onClick={onClose}
         aria-label="Back to Vrede"
-        className="flex size-10 items-center justify-center rounded-full bg-[#f5f5f5] text-2xl leading-none text-[#171717] transition hover:bg-[#ededed]"
+        className="flex size-10 items-center justify-center rounded-full text-2xl leading-none text-[#171717] transition hover:bg-[#ededed]"
       >
         <span aria-hidden>‹</span>
       </button>
 
-      <div className="mx-auto mt-24 max-w-[492px] rounded-2xl bg-white p-5 shadow-[0_12px_30px_rgba(0,0,0,0.12)] sm:mt-28 sm:p-6">
+      <div className="mx-auto mt-24 max-w-[492px] rounded-2xl bg-white p-2 shadow-[0_12px_30px_rgba(0,0,0,0.12)] sm:mt-28 sm:p-4">
         <h1 className="text-[17px] font-semibold tracking-[-0.02em]">
           Are you a tutor or learner?
         </h1>
@@ -229,15 +229,15 @@ function RoleSelection({
           type="button"
           onClick={() => onSelect("learner")}
           aria-pressed={selectedRole === "learner"}
-          className={`relative flex min-h-[112px] items-center gap-3 rounded-xl border p-3 text-left transition sm:p-4 ${
+          className={`relative flex items-center gap-3 rounded-xl border p-0.4 text-left transition sm:p-4 ${
             selectedRole === "learner"
               ? "border-[#8B0D16] bg-[#fff0f2]"
               : "border-[#d9d9d9] bg-white hover:border-[#8B0D16]/60"
           }`}
         >
           <span className={`absolute left-2.5 top-2.5 size-3 rounded-full border ${selectedRole === "learner" ? "border-[#8B0D16] bg-[#8B0D16]" : "border-[#bdbdbd]"}`} />
-          <img src="/images/svg/learner.svg" alt="" className="ml-5 size-14 object-contain sm:size-16" />
-          <span className="text-[12px] font-semibold">Learner</span>
+          <img src="/images/svg/learner.svg" alt="" className="ml-5 size-12 object-contain sm:size-16" />
+          <span className="text-[8px] sm:text-[12px] font-semibold">Learner</span>
         </button>
 
         <button
@@ -251,8 +251,8 @@ function RoleSelection({
           }`}
         >
           <span className={`absolute left-2.5 top-2.5 size-3 rounded-full border ${selectedRole === "tutor" ? "border-[#8B0D16] bg-[#8B0D16]" : "border-[#bdbdbd]"}`} />
-          <img src="/images/svg/tutor.svg" alt="" className="ml-5 size-14 object-contain sm:size-16" />
-          <span className="text-[12px] font-semibold">Tutor</span>
+          <img src="/images/svg/tutor.svg" alt="" className="ml-5 size-12 object-contain sm:size-16" />
+          <span className="text-[8px] sm:text-[12px] font-semibold">Tutor</span>
         </button>
         </div>
 
@@ -289,7 +289,7 @@ function LearnerForm({
   submissionError: string;
 }) {
   return (
-    <div>
+    <div className="mx-auto max-w-[492px] items-center justify-center rounded-2xl p-2 shadow-[0_12px_30px_rgba(0,0,0,0.12)] sm:p-4">
       <ScreenHeader
         title="Get Early Access"
         description="Join forward-thinking educators running classes on Vrede."
