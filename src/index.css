@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @font-face {
     font-family: 'Aeonik';
     src: url('./fonts/Aeonik-Regular.woff2') format('woff2'),
@@ -16,13 +17,22 @@
     font-display: swap;
 }
 
+@theme {
+    /* This overrides Tailwind's default sans font globally */
+    --font-sans: "Aeonik", ui-sans-serif, system-ui, sans-serif;
+    /* Optional: expose a utility class like `font-aeonik` */
+    --font-aeonik: "Aeonik", sans-serif;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  font-family: "Aeonik" sans-serif;
   overflow-x: hidden;
+  /* You can drop font-family here since --font-sans handles it, 
+     but keeping it doesn't hurt */
+  font-family: "Aeonik", sans-serif;
 }
 
 /* Hero section vertical + horizontal rhythm */

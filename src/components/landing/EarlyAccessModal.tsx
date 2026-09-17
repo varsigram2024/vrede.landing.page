@@ -296,7 +296,7 @@ function LearnerForm({
   submissionError: string;
 }) {
   return (
-    <div className="mx-auto mt-24 max-w-[492px] items-center justify-center rounded-2xl p-2 shadow-[0_12px_30px_rgba(0,0,0,0.12)] sm:p-4">
+    <div className="mx-auto mt-24 max-w-123 items-center justify-center rounded-2xl p-2 shadow-[0_12px_30px_rgba(0,0,0,0.12)] sm:p-4">
       <ScreenHeader
         title="Get Early Access"
         description="Join forward-thinking educators running classes on Vrede."
