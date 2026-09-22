@@ -25,11 +25,11 @@ export function SectionHeading({
       {withSVG ? (
           <div className="mt-4 w-full flex flex-row items-center flex-wrap justify-between">
             {[
-              ["meeting.svg", "Meeting"],
-              ["tasks.svg", "Tasks"],
-              ["library.svg", "Library"],
-              ["assignments.svg", "Assignments"],
               ["calendar.svg", "Calender"],
+              ["assignments.svg", "Tests"],
+              ["meeting.svg", "Classroom"],
+              ["library.svg", "Library"],
+              ["tasks.svg", "Tasks"],
             ].map(([svg, label]) => (
               <div key={svg} className="flex items-center gap-3 rounded-xl border-transparent p-2 shadow-[0_3.325px_6.65px_0_rgba(0,0,0,0.13)]">
                 <span className="bg-[#FF6682] p-1 rounded-sm aspect-ratio flex items-center justify-center">
