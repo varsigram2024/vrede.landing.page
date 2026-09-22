@@ -1,18 +1,37 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { FaqSection } from "./components/landing/FaqSection";
 import { FeatureSplitSection } from "./components/landing/FeatureSplitSection";
 import { FooterSection } from "./components/landing/FooterSection";
 import { Header } from "./components/landing/Header";
 import { HeroSection } from "./components/landing/HeroSection";
 import { TeachingCardsSection } from "./components/landing/TeachingCardsSection";
-import { EarlyAccessModal } from "./components/landing/EarlyAccessModal";
+import { LearnerPage } from "./pages/early-access/LearnerPage";
+import { RoleSelectionPage } from "./pages/early-access/RoleSelectionPage";
+import { SubmittedPage } from "./pages/early-access/SubmittedPage";
+import { TutorPage } from "./pages/early-access/TutorPage";
+import { TutorProfilePage } from "./pages/early-access/TutorProfilePage";
 
 export default function App() {
-  const [isEarlyAccessOpen, setIsEarlyAccessOpen] = useState(false);
+  return (
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/early-access" element={<RoleSelectionPage />} />
+      <Route path="/early-access/learner" element={<LearnerPage />} />
+      <Route path="/early-access/tutor" element={<TutorPage />} />
+      <Route path="/early-access/tutor-profile" element={<TutorProfilePage />} />
+      <Route path="/early-access/submitted" element={<SubmittedPage />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
+}
 
-  if (isEarlyAccessOpen) {
-    return <EarlyAccessModal onClose={() => setIsEarlyAccessOpen(false)} />;
-  }
+function LandingPage() {
+  const navigate = useNavigate();
+
+  const handleEarlyAccess = () => {
+    navigate("/early-access");
+  };
 
   const sectionContent = (
     <>
@@ -27,7 +46,7 @@ export default function App() {
       <FeatureSplitSection
         title="Say it once and everyone sees it."
         description="Vrede keeps announcements separate from class chat, so the important update doesn't get lost in the back-and-forth."
-        mockupImage="/images/mockups/iphone 48.png"
+        mockupImage="/images/mockups/iphone svg.svg"
         bgColor="bg-[#FAF9F6]"
       />
 
@@ -42,14 +61,14 @@ export default function App() {
 
       <TeachingCardsSection />
       <FaqSection />
-      <FooterSection onEarlyAccess={() => setIsEarlyAccessOpen(true)} />
+      <FooterSection onEarlyAccess={handleEarlyAccess} />
     </>
   );
 
   return (
     <main className="min-h-screen bg-stone-50 text-stone-950">
-      <Header onEarlyAccess={() => setIsEarlyAccessOpen(true)} />
-      <HeroSection onEarlyAccess={() => setIsEarlyAccessOpen(true)} />
+      <Header onEarlyAccess={handleEarlyAccess} />
+      <HeroSection onEarlyAccess={handleEarlyAccess} />
       <LazyBelowFold>{sectionContent}</LazyBelowFold>
     </main>
   );

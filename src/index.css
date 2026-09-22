@@ -137,3 +137,13 @@ img { max-width: 100%; height: auto; }
     transition: none;
   }
 }
+
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
