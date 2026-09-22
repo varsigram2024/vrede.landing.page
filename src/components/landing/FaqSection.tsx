@@ -4,20 +4,36 @@ import { ScrollReveal } from "../ScrollReveal";
 
 const faqs = [
   {
-    question: "What is Vrede built for?",
-    answer: "Vrede is designed to help educators and cohort managers run learning spaces, class communication, and assignments from one place.",
+    question: "Who is Vrede built for?",
+    answer: "Vrede is for independent tutors, educators, and facilitators who run structured, cohort-based learning experiences. If you teach a group of students over a set period and spend hours managing the logistics around it, Vrede is built for you.",
   },
   {
-    question: "Can I use it for live classes and resources?",
-    answer: "Yes. The platform is structured to support live sessions, announcements, lesson resources, and class-level workflows.",
+    question: "I already have a setup using Google Drive, WhatsApp, Zoom, and Forms. Why should I switch?",
+    answer: "Because those apps were built for general chat and work , not for running a class. When you stitch them together, you become the one holding everything in your head: resending links, matching submissions, and chasing assignments. Vrede replaces that patchwork with one workspace designed for teaching. You don't lose the tools you already like; you just stop being the search engine for your own class.",
   },
   {
-    question: "Does Vrede work for communities and bootcamps?",
-    answer: "Yes. It works well for courses, bootcamps, workshops, and ongoing learning communities that need organized collaboration.",
+    question: "What happens to my current class materials?",
+    answer: "You don't have to re-record your lessons or rebuild your curriculum from scratch. You can bring your existing YouTube videos, files and live class workflows straight into your Vrede room.",
   },
   {
-    question: "How does it reduce context switching?",
-    answer: "By keeping teaching tools, communication, and learning materials in one workspace instead of spreading them across multiple apps.",
+    question: "Is Vrede only for universities?",
+    answer: "No. It can be used for universities, professional training programs, bootcamps, workshops, learning communities, and corporate training.",
+  },
+  {
+    question: "How is Vrede different from regular LMS platforms?",
+    answer: "Most LMS platforms are built for expensive, self-paced Western courses or complex university systems. They are often costly, packed with features you'll never use, and don't match how classes actually run in our market. Vrede is built for our market and focused on eliminating admin stress, keeping your class organized and giving you back your time every week.",
+  },
+  {
+    question: "What if I teach both live classes and pre-recorded lessons?",
+    answer: "Vrede is designed for however you teach. Whether you host live interactive sessions, drop pre-recorded audio lessons with slides (Smart Class), share video lessons, or mix all three, the workspace adapts seamlessly to your style.",
+  },
+  {
+    question: "Will my students find it hard to use?",
+    answer: "Not at all. Vrede gives your learners a clean, distraction-free environment where their calendar, resources, announcements, and task submissions live in one obvious place.",
+  },
+  {
+    question: "How can I get access?",
+    answer: "Join the early access list and we'll notify you the moment onboarding opens.",
   },
 ];
 

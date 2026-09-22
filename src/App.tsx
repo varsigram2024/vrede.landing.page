@@ -17,25 +17,26 @@ export default function App() {
   const sectionContent = (
     <>
       <FeatureSplitSection
-        title="Everything your class needs, in one place."
-        description="Teaching is more than delivering lessons. It is announcements, resources, live sessions, assignments, and keeping everyone aligned. Vrede brings it together so educators can focus on teaching instead of platform management."
-        mockupImage="/images/mockups/quick action overlay.png"
-        withIllustration
+        title="Teach the way that works for you."
+        description="Vrede adapts to your teaching workflow (live, recorded, or a mix of both). You don't change how you teach. You simply stop managing it across WhatsApp groups, Drive folders, an Excel Sheet and a Forms link."
+        withSVG={true}
+        mockupImage="/images/mockups/iphone 48.png"
         bgColor="bg-[#fff]"
       />
 
       <FeatureSplitSection
-        title="Everything your class needs, in one place."
-        description="Teaching is more than delivering lessons. It is announcements, resources, live sessions, assignments, and keeping everyone aligned. Vrede brings it together so educators can focus on teaching instead of platform management."
-        mockupImage="/images/mockups/iphone 46.svg"
+        title="Say it once and everyone sees it."
+        description="Vrede keeps announcements separate from class chat, so the important update doesn't get lost in the back-and-forth."
+        mockupImage="/images/mockups/iphone 48.png"
         bgColor="bg-[#FAF9F6]"
       />
 
       <FeatureSplitSection
         reverse
-        title="Keep announcements where they'll never get lost"
-        description="Ditch crowded group chats and messy email threads. Vrede keeps announcements, queries, and workspace discussions structured so critical updates stay visible and students never miss a deadline."
+        title="A library that actually finds things for you. "
+        description="Add a resource once, and Vrede keeps it organized by class. Your students find what they need on their own. You stop being the search engine for your own class."
         mockupImage="/images/mockups/iphone 47.svg"
+        withIllustration
         bgColor="bg-[#FFF4F6]"
       />
 
