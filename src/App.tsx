@@ -11,6 +11,8 @@ import { RoleSelectionPage } from "./pages/early-access/RoleSelectionPage";
 import { SubmittedPage } from "./pages/early-access/SubmittedPage";
 import { TutorPage } from "./pages/early-access/TutorPage";
 import { TutorProfilePage } from "./pages/early-access/TutorProfilePage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfUse from "./pages/TermsOfUse";
 
 export default function App() {
   return (
@@ -21,6 +23,8 @@ export default function App() {
       <Route path="/early-access/tutor" element={<TutorPage />} />
       <Route path="/early-access/tutor-profile" element={<TutorProfilePage />} />
       <Route path="/early-access/submitted" element={<SubmittedPage />} />
+      <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/terms" element={<TermsOfUse />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

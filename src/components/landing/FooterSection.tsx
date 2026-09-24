@@ -45,8 +45,10 @@ export function FooterSection({ onEarlyAccess }: { onEarlyAccess: () => void }) 
                 <p className="text-lg font-bold text-white/950">Vrede</p>
               </div>
             </div>
-            <div className="flex flex-col flex-wrap justify-center items-start gap-4">
-              <span>Contact</span>
+            <div className="flex flex-col lg:flex-row flex-wrap justify-center items-start gap-4">
+              <a className="transition-opacity hover:opacity-70" href="mailto:legal@vrede.app">Contact</a>
+              <a className="transition-opacity hover:opacity-70" href="/privacy">Privacy Policy</a>
+              <a className="transition-opacity hover:opacity-70" href="/terms">Terms of Use</a>
             </div>
             <span>© 2026 Vrede. All rights reserved.</span>
 
