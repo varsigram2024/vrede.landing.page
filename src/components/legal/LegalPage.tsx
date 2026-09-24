@@ -152,11 +152,7 @@ export function LegalPage({ title, date, intro, sections, artPosition = "left" }
                         <img src="/images/legal.svg" alt="" className="" />
                     </div>
 				<div className="legal-hero-copy">
-                    <p className="legal-breadcrumb">
-                        <a href="/">Home</a>
-                        &nbsp; / &nbsp;
-                        <strong>{title}</strong>
-                        </p>
+                    
                     <h1>{title}</h1><p>Last Updated: {date}</p><p>{intro}</p></div>
 			</section>
 			<main className="legal-body"><div className="legal-body-inner"><aside className="legal-toc">
