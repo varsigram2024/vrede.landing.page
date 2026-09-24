@@ -168,8 +168,7 @@ export function LegalPage({ title, date, intro, sections, artPosition = "left" }
                     href={`#${section.id}`}
                     key={section.id}
                     onClick={(event) => navigateToSection(event, section.id)}
-                    >
-                    {index + 1}. {section.title}
+                    >{section.title}
                     </a>)}
                 </aside><article className="legal-content">{sections.map((section) => <section id={section.id} key={section.id}><h2>{section.title}</h2>{section.content}</section>)}</article></div></main>
 			<nav className={`legal-mobile-contents${isContentsOpen ? " open" : ""}`} aria-label="On this page"><span className="legal-mobile-handle" aria-hidden="true" /><button className="legal-mobile-toggle" type="button" onClick={() => setIsContentsOpen((open) => !open)}><strong>On this page</strong><span className="legal-mobile-close" aria-hidden="true">{isContentsOpen ? "×" : "+"}</span></button><div className="legal-mobile-list">{sections.map((section, index) => 
