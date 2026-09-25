@@ -1,4 +1,7 @@
-import { useEffect, useState, useRef, type ReactNode } from "react";
+import { useEffect, useState, useRef, type MouseEvent, type ReactNode } from "react";
+import { useNavigate } from "react-router-dom";
+import { FooterSection } from "../landing/FooterSection";
+import { Header } from "../landing/Header";
 
 type LegalSection = {
 	id: string;
@@ -15,10 +18,11 @@ type LegalPageProps = {
 };
 
 export function LegalPage({ title, date, intro, sections, artPosition = "left" }: LegalPageProps) {
+	const navigate = useNavigate();
 	const [isContentsOpen, setIsContentsOpen] = useState(false);
 	const [activeSection, setActiveSection] = useState(sections[0]?.id ?? "");
 	const isNavigatingRef = useRef(false);
-	const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+	const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
 	// Get active section index & title for closed mobile card
 	const activeIndex = sections.findIndex((s) => s.id === activeSection);
@@ -51,7 +55,7 @@ export function LegalPage({ title, date, intro, sections, artPosition = "left" }
 	}, [sections]);
 
 	const navigateToSection = (
-		event: React.MouseEvent<HTMLAnchorElement>,
+		event: MouseEvent<HTMLAnchorElement>,
 		id: string
 	) => {
 		event.preventDefault();
@@ -85,11 +89,6 @@ export function LegalPage({ title, date, intro, sections, artPosition = "left" }
 			<style>{`
 				.legal-page { --legal-ink:#211f22; --legal-muted:#656066; --legal-red:#8d001c; --legal-pink:#fff3f5; --legal-active-bg:#fde8ed; min-height:100vh; color:var(--legal-ink); background:#fff; font-family:"Aeonik", ui-sans-serif, system-ui, sans-serif; }
 				.legal-page * { box-sizing:border-box; }
-				.legal-header { height:56px; display:flex; align-items:center; justify-content:space-between; padding:0 clamp(24px, 6vw, 72px); border-bottom:1px solid #f0e9eb; background:#fffafb; }
-				.legal-brand { display:flex; align-items:center; gap:6px; color:var(--legal-ink); font-size:13px; font-weight:700; text-decoration:none; }
-				.legal-brand img { width:17px; height:auto; }
-				.legal-cta { display:inline-flex; align-items:center; gap:7px; padding:9px 12px; border-radius:4px; color:#fff; background:var(--legal-red); font-size:9px; font-weight:700; text-decoration:none; }
-				
 				.legal-hero { display:flex; flex-direction:row; align-items:center; justify-content:center; gap:clamp(32px, 6vw, 100px); min-height:clamp(220px, 26vw, 320px); padding:clamp(32px, 5vw, 64px) clamp(24px, 6vw, 72px); }
 				.legal-hero-art { flex:0 1 320px; width:min(280px, 32vw); }
 				.legal-hero-art img { display:block; width:100%; height:auto; }
@@ -117,7 +116,6 @@ export function LegalPage({ title, date, intro, sections, artPosition = "left" }
 				.legal-content ul { margin:6px 0 16px; padding-left:19px; color:#4f4a4f; }
 				.legal-content li { margin:8px 0; padding-left:3px; }
 				.legal-content a { color:var(--legal-red); font-weight:700; }
-
 				/* Mobile Components */
 				.legal-mobile-card { display:none; }
 				.legal-mobile-backdrop { display:none; }
@@ -286,10 +284,7 @@ export function LegalPage({ title, date, intro, sections, artPosition = "left" }
 				}
 			`}</style>
 
-			<header className="legal-header">
-				<a className="legal-brand" href="/"><img src="/images/logo.svg" alt="" /> Vrede</a>
-				<a className="legal-cta" href="/early-access">Request Early Access <span aria-hidden="true">-&gt;</span></a>
-			</header>
+			<Header onEarlyAccess={() => navigate("/early-access")} />
 
 			<section className={`legal-hero ${artPosition === "right" ? "art-right" : ""}`}>
 				<div className="legal-hero-art" aria-hidden="true">
@@ -341,6 +336,7 @@ export function LegalPage({ title, date, intro, sections, artPosition = "left" }
 					</article>
 				</div>
 			</main>
+			<FooterSection onEarlyAccess={() => navigate("/early-access")} />
 
 			{/* Mobile Backdrop */}
 			<div
