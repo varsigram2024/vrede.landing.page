@@ -14,9 +14,9 @@ export function TutorSubmittedPage() {
   const navigate = useNavigate();
 
   return (
-    <main className="min-h-screen bg-white text-[#171717]">
+    <main className="min-h-screen bg-white text-[#171717] space-y-10">
       {/* Congratulations */}
-      <section className="flex min-h-[420px] flex-col items-center justify-center px-6 text-center sm:min-h-[500px]">
+      <section className="flex flex-col items-center justify-center px-6 text-center">
         <ScrollReveal direction="up">
           <div className="flex flex-col items-center">
             <img
