@@ -8,7 +8,8 @@ import { HeroSection } from "./components/landing/HeroSection";
 import { TeachingCardsSection } from "./components/landing/TeachingCardsSection";
 import { LearnerPage } from "./pages/early-access/LearnerPage";
 import { RoleSelectionPage } from "./pages/early-access/RoleSelectionPage";
-import { SubmittedPage } from "./pages/early-access/SubmittedPage";
+import { LearnerSubmittedPage } from "./pages/early-access/learner/LearnerSubmittedPage";
+import { TutorSubmittedPage } from "./pages/early-access/tutor/TutorSubmittedPage";
 import { TutorPage } from "./pages/early-access/TutorPage";
 import { TutorProfilePage } from "./pages/early-access/TutorProfilePage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -22,7 +23,8 @@ export default function App() {
       <Route path="/early-access/learner" element={<LearnerPage />} />
       <Route path="/early-access/tutor" element={<TutorPage />} />
       <Route path="/early-access/tutor-profile" element={<TutorProfilePage />} />
-      <Route path="/early-access/submitted" element={<SubmittedPage />} />
+      <Route path="/early-access/learner/submitted" element={<LearnerSubmittedPage />} />
+      <Route path="/early-access/tutor/submitted" element={<TutorSubmittedPage />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsOfUse />} />
       <Route path="*" element={<Navigate to="/" replace />} />

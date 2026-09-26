@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 const RED = "#8B0D16";
 
-export function SubmittedPage() {
+export function LearnerSubmittedPage() {
   const navigate = useNavigate();
 
   return (

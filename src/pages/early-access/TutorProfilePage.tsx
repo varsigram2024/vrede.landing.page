@@ -61,7 +61,7 @@ export function TutorProfilePage() {
     }
 
     setIsSubmitting(false);
-    navigate("/early-access/submitted");
+    navigate("/early-access/tutor/submitted");
   };
 
   return (

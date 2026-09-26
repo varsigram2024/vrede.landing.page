@@ -44,7 +44,7 @@ export function LearnerPage() {
     }
 
     setIsSubmitting(false);
-    navigate("/early-access/submitted");
+    navigate("/early-access/learner/submitted");
   };
 
   return (
