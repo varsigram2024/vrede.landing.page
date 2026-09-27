@@ -150,7 +150,7 @@ export function TutorSubmittedPage() {
               </p>
 
               <a
-                href="https://wa.me/message/3YY7ZSPEPO44J1"
+                href="https://wa.link/rx7af3"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-3 text-sm font-medium text-[#750015] transition hover:scale-[1.02] hover:bg-[#fff5f6]"

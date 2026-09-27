@@ -1,3 +1,5 @@
+import { useRef } from "react";
+import { gsap } from "gsap";
 import { SectionHeading } from "./SectionHeading";
 import { ScrollReveal } from "../ScrollReveal";
 import click from "../../../public/images/svg/click.svg";
@@ -56,7 +58,7 @@ export function TeachingCardsSection() {
         <div className="grid gap-6 lg:grid-cols-3">
           {cards.map((card, index) => (
             <ScrollReveal key={card.title} delay={index * 120} className="h-full">
-              <article
+              <InteractiveCard
                 key={card.title}
                 className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-stone-200 bg-white p-8 pb-0"
               >
@@ -80,11 +82,62 @@ export function TeachingCardsSection() {
                   </div>
                 )}
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-t from-white via-white/20 to-transparent" />
-              </article>
+              </InteractiveCard>
             </ScrollReveal>
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function InteractiveCard({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className: string;
+}) {
+  const ref = useRef<HTMLElement>(null);
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLElement>) => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const card = event.currentTarget;
+    const bounds = card.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+
+    gsap.to(card, {
+      rotateX: -y * 3,
+      rotateY: x * 3,
+      y: -6,
+      duration: 0.35,
+      ease: "power2.out",
+      transformPerspective: 900,
+    });
+  };
+
+  const reset = () => {
+    if (ref.current) {
+      gsap.to(ref.current, {
+        rotateX: 0,
+        rotateY: 0,
+        y: 0,
+        duration: 0.5,
+        ease: "power3.out",
+      });
+    }
+  };
+
+  return (
+    <article
+      ref={ref}
+      className={className}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={reset}
+    >
+      {children}
+    </article>
   );
 }

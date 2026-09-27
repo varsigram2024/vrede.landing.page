@@ -1,4 +1,8 @@
-import { type ReactNode, useEffect, useRef, useState } from "react";
+import { type ReactNode, useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type ScrollRevealProps = {
   children: ReactNode;
@@ -14,33 +18,56 @@ export function ScrollReveal({
   direction = "up",
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const element = ref.current;
     if (!element) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.unobserve(element);
-        }
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -60px" },
-    );
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, []);
+    if (prefersReducedMotion) {
+      gsap.set(element, { autoAlpha: 1, clearProps: "transform" });
+      return;
+    }
+
+    const offsets = {
+      up: { x: 0, y: 32 },
+      down: { x: 0, y: -32 },
+      left: { x: -40, y: 0 },
+      right: { x: 40, y: 0 },
+      fade: { x: 0, y: 0 },
+    } as const;
+    const offset = offsets[direction];
+
+    const context = gsap.context(() => {
+      gsap.fromTo(
+        element,
+        { autoAlpha: 0, ...offset },
+        {
+          autoAlpha: 1,
+          x: 0,
+          y: 0,
+          duration: 0.8,
+          delay: delay / 1000,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: element,
+            start: "top 86%",
+            once: true,
+          },
+        },
+      );
+    }, element);
+
+    return () => context.revert();
+  }, [delay, direction]);
 
   return (
     <div
       ref={ref}
-      className={`scroll-reveal scroll-reveal-${direction} ${
-        visible ? "scroll-reveal-visible" : ""
-      } ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={`scroll-reveal ${className}`}
     >
       {children}
     </div>
