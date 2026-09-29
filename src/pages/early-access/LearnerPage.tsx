@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../lib/supabase";
 
-const RED = "#8B0D16";
 const inputClassName =
   "mt-1.5 h-11 w-full rounded-md border border-[#e5e7eb] bg-white px-3 text-[14px] text-[#171717] outline-none transition placeholder:text-[#9ca3af] focus:border-[#8B0D16]";
 const labelClassName =
@@ -119,5 +118,3 @@ export function LearnerPage() {
     </main>
   );
 }
-
-export { RED };

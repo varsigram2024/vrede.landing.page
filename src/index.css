@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Aeonik";
-  src: url("./fonts/Aeonik-Regular.woff2") format("woff2");
+  src: url("/fonts/New Aeonik Trials/AeonikTRIAL-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: "Aeonik";
-  src: url("./fonts/Aeonik-Bold.woff2") format("woff2");
+  src: url("/fonts/New Aeonik Trials/AeonikTRIAL-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -18,7 +18,7 @@
 
 @font-face {
   font-family: "Aeonik";
-  src: url("./fonts/Aeonik-Light.woff2") format("woff2");
+  src: url("/fonts/New Aeonik Trials/AeonikTRIAL-Light.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;

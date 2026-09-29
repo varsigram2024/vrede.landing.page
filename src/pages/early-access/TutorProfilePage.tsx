@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { supabase } from "../../lib/supabase";
 
 const inputClassName =
@@ -18,11 +18,7 @@ type TutorDetails = {
 export function TutorProfilePage() {
   const navigate = useNavigate();
   const location = useLocation();
-  const tutorDetails = (location.state as { tutorDetails?: TutorDetails } | null)?.tutorDetails ?? {
-    name: "",
-    email: "",
-    organisation: "",
-  };
+  const tutorDetails = (location.state as { tutorDetails?: TutorDetails } | null)?.tutorDetails;
 
   const [profile, setProfile] = useState({
     studentCount: "",
@@ -32,6 +28,10 @@ export function TutorProfilePage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionError, setSubmissionError] = useState("");
+
+  if (!tutorDetails) {
+    return <Navigate to="/early-access/tutor" replace />;
+  }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

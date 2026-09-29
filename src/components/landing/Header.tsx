@@ -1,5 +1,6 @@
 import { PrimaryButton } from "./PrimaryButton";
-import logo from "../../../public/logo.svg"
+
+const logo = "/logo.svg";
 
 export function Header({ onEarlyAccess }: { onEarlyAccess: () => void }) {
   return (
