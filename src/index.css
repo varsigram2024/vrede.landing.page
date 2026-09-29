@@ -29,6 +29,11 @@
     --font-sans: "Aeonik", ui-sans-serif, system-ui, sans-serif;
     /* Optional: expose a utility class like `font-aeonik` */
     --font-aeonik: "Aeonik", sans-serif;
+
+    --color-brand: #8B0D16;
+    --color-brand-dark: #760b12;
+    --color-brand-deep: #750015;
+    --color-brand-tint: #fff1f2;
 }
 
 html, body {

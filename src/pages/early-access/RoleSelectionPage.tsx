@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 type Role = "learner" | "tutor";
 
-const RED = "#8B0D16";
-
 export function RoleSelectionPage() {
   const navigate = useNavigate();
   const [selectedRole, setSelectedRole] = useState<Role | null>(null);
@@ -44,19 +42,19 @@ export function RoleSelectionPage() {
               aria-pressed={selectedRole === "tutor"}
               className={`relative flex min-h-[112px] items-center gap-3 rounded-xl border p-3 text-left transition sm:p-4 ${
                 selectedRole === "tutor"
-                  ? "border-[#8B0D16] bg-[#fff0f2]"
-                  : "border-[#d9d9d9] bg-white hover:border-[#8B0D16]/60"
+                  ? "border-brand bg-[#fff0f2]"
+                  : "border-[#d9d9d9] bg-white hover:border-brand/60"
               }`}
             >
               <span
                 className={`absolute left-2.5 top-2.5 size-3 rounded-full border ${
-                  selectedRole === "tutor" ? "border-[#8B0D16]" : "border-[#bdbdbd]"
+                  selectedRole === "tutor" ? "border-brand" : "border-[#bdbdbd]"
                 }`}
               >
                 <span
                   className={`${
                     selectedRole === "tutor"
-                      ? "absolute left-1/2 top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8B0D16]"
+                      ? "absolute left-1/2 top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand"
                       : "absolute left-1/2 top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-transparent"
                   }`}
                 />
@@ -71,19 +69,19 @@ export function RoleSelectionPage() {
               aria-pressed={selectedRole === "learner"}
               className={`relative flex items-center gap-3 rounded-xl border p-3 text-left transition sm:p-4 ${
                 selectedRole === "learner"
-                  ? "border-[#8B0D16] bg-[#fff0f2]"
-                  : "border-[#d9d9d9] bg-white hover:border-[#8B0D16]/60"
+                  ? "border-brand bg-[#fff0f2]"
+                  : "border-[#d9d9d9] bg-white hover:border-brand/60"
               }`}
             >
               <span
                 className={`absolute left-2.5 top-2.5 size-3 rounded-full border ${
-                  selectedRole === "learner" ? "border-[#8B0D16]" : "border-[#bdbdbd]"
+                  selectedRole === "learner" ? "border-brand" : "border-[#bdbdbd]"
                 }`}
               >
                 <span
                   className={`${
                     selectedRole === "learner"
-                      ? "absolute left-1/2 top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8B0D16]"
+                      ? "absolute left-1/2 top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand"
                       : "absolute left-1/2 top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-transparent"
                   }`}
                 />
@@ -97,7 +95,7 @@ export function RoleSelectionPage() {
             type="button"
             onClick={handleContinue}
             disabled={!selectedRole}
-            className="mt-4 h-9 w-full rounded-md bg-[#8B0D16] text-[10px] font-semibold text-white transition hover:bg-[#760b12] disabled:cursor-not-allowed disabled:opacity-40"
+            className="mt-4 h-9 w-full rounded-md bg-brand text-[10px] font-semibold text-white transition hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-40"
           >
             Continue
           </button>
@@ -106,5 +104,3 @@ export function RoleSelectionPage() {
     </main>
   );
 }
-
-export { RED };

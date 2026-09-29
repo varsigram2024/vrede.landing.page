@@ -4,7 +4,7 @@ import { ScrollReveal } from "../ScrollReveal";
 
 export function FooterSection({ onEarlyAccess }: { onEarlyAccess: () => void }) {
   return (
-    <footer className="bg-[#750015] px-6 py-16 text-white lg:px-8 relative">
+    <footer className="bg-brand-deep px-6 py-16 text-white lg:px-8 relative">
       <div 
       className="pointer-events-none absolute inset-0 w-full h-full opacity-100 animate-pulse-slow"
         style={{
@@ -25,7 +25,7 @@ export function FooterSection({ onEarlyAccess }: { onEarlyAccess: () => void }) 
         </ScrollReveal>
 
         <ScrollReveal delay={150} className="w-full sm:max-w-[20rem]">
-          <PrimaryButton onClick={onEarlyAccess} variant="ghost" className="w-full flex stretch border-white bg-white text-[#750015] hover:bg-white/10">
+          <PrimaryButton onClick={onEarlyAccess} variant="ghost" className="w-full flex stretch border-white bg-white text-brand-deep hover:bg-white/10">
             Request Invitation
             <span aria-hidden>→</span>
           </PrimaryButton>

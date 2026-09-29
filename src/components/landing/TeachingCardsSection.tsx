@@ -2,9 +2,9 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { SectionHeading } from "./SectionHeading";
 import { ScrollReveal } from "../ScrollReveal";
-import click from "../../../public/images/svg/click.svg";
-import calender from "../../../public/images/svg/calendar-tick.svg";
-import tick from "../../../public/images/svg/check.svg";
+const click = "/images/svg/click.svg";
+const calender = "/images/svg/calendar-tick.svg";
+const tick = "/images/svg/check.svg";
 
 type Card = {
   title: string;
@@ -76,7 +76,7 @@ export function TeachingCardsSection() {
                   <div className="mt-auto flex justify-center pt-4 pb-0">
                     <img
                       src={card.mockupImage}
-                      alt="Mockup"
+                      alt={`${card.title} app screen`}
                       className="bottom-0 block"
                     />
                   </div>
