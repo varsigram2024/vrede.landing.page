@@ -135,4 +135,14 @@
         .delay-400 {
           animation-delay: 400ms;
         }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-badge,
+          .animate-float,
+          .animate-float-slow,
+          .animate-bounce-slow,
+          .animate-pulse-slow,
+          .animate-fade-in-up {
+            animation: none !important;
+          }
+        }
       
