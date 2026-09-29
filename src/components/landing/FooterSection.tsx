@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PrimaryButton } from "./PrimaryButton";
 import { ScrollReveal } from "../ScrollReveal";
 
@@ -48,8 +49,8 @@ export function FooterSection({ onEarlyAccess }: { onEarlyAccess: () => void }) 
             </div>
             <div className="flex flex-col lg:flex-row flex-wrap justify-center items-start gap-4">
               <a className="transition-opacity hover:opacity-70" href="mailto:hello@vrede.app">Contact</a>
-              <a className="transition-opacity hover:opacity-70" href="/privacy">Privacy Policy</a>
-              <a className="transition-opacity hover:opacity-70" href="/terms">Terms of Use</a>
+              <Link className="transition-opacity hover:opacity-70" to="/privacy">Privacy Policy</Link>
+              <Link className="transition-opacity hover:opacity-70" to="/terms">Terms of Use</Link>
             </div>
             <span>© 2026 Vrede. All rights reserved.</span>
 
