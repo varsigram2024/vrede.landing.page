@@ -1,7 +1,5 @@
-import { useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { ScrollReveal } from "../../../components/ScrollReveal";
-
-const RED = "#8B0D16";
 
 const benefits = [
   "Walk you through Vrede and show you how to get the most out of it",
@@ -12,6 +10,11 @@ const benefits = [
 
 export function TutorSubmittedPage() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  if (!(location.state as { submitted?: boolean } | null)?.submitted) {
+    return <Navigate to="/early-access" replace />;
+  }
 
   return (
     <div className="relative h-full min-h-screen flex flex-col justify-between bg-white text-[#171717]">
@@ -25,7 +28,7 @@ export function TutorSubmittedPage() {
               className="h-auto w-44 lg:w-75"
             />
 
-            <h1 className="mt-5 text-2xl font-black lg:text-6xl text-[#750015]">
+            <h1 className="mt-5 text-2xl font-black lg:text-6xl text-brand-deep">
               Congratulations
             </h1>
 
@@ -153,7 +156,7 @@ export function TutorSubmittedPage() {
                 href="https://wa.link/rx7af3"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-3 text-sm font-medium text-[#750015] transition hover:scale-[1.02] hover:bg-[#fff5f6]"
+                className="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-3 text-sm font-medium text-brand-deep transition hover:scale-[1.02] hover:bg-[#fff5f6]"
               >
                 {/* WhatsApp */}
                 <svg

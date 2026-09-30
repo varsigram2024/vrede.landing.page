@@ -1,22 +1,43 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { FaqSection } from "./components/landing/FaqSection";
 import { FeatureSplitSection } from "./components/landing/FeatureSplitSection";
 import { FooterSection } from "./components/landing/FooterSection";
 import { Header } from "./components/landing/Header";
 import { HeroSection } from "./components/landing/HeroSection";
 import { TeachingCardsSection } from "./components/landing/TeachingCardsSection";
-import { LearnerPage } from "./pages/early-access/LearnerPage";
-import { RoleSelectionPage } from "./pages/early-access/RoleSelectionPage";
-import { LearnerSubmittedPage } from "./pages/early-access/learner/LearnerSubmittedPage";
-import { TutorSubmittedPage } from "./pages/early-access/tutor/TutorSubmittedPage";
-import { TutorPage } from "./pages/early-access/TutorPage";
-import { TutorProfilePage } from "./pages/early-access/TutorProfilePage";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfUse from "./pages/TermsOfUse";
+
+const LearnerPage = lazy(() =>
+  import("./pages/early-access/LearnerPage").then((m) => ({ default: m.LearnerPage })),
+);
+const RoleSelectionPage = lazy(() =>
+  import("./pages/early-access/RoleSelectionPage").then((m) => ({ default: m.RoleSelectionPage })),
+);
+const LearnerSubmittedPage = lazy(() =>
+  import("./pages/early-access/learner/LearnerSubmittedPage").then((m) => ({
+    default: m.LearnerSubmittedPage,
+  })),
+);
+const TutorSubmittedPage = lazy(() =>
+  import("./pages/early-access/tutor/TutorSubmittedPage").then((m) => ({
+    default: m.TutorSubmittedPage,
+  })),
+);
+const TutorPage = lazy(() =>
+  import("./pages/early-access/TutorPage").then((m) => ({ default: m.TutorPage })),
+);
+const TutorProfilePage = lazy(() =>
+  import("./pages/early-access/TutorProfilePage").then((m) => ({ default: m.TutorProfilePage })),
+);
+const NotFoundPage = lazy(() =>
+  import("./pages/NotFoundPage").then((m) => ({ default: m.NotFoundPage })),
+);
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
 
 export default function App() {
   return (
+    <Suspense fallback={null}>
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/early-access" element={<RoleSelectionPage />} />
@@ -27,8 +48,9 @@ export default function App() {
       <Route path="/early-access/tutor/submitted" element={<TutorSubmittedPage />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsOfUse />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
+    </Suspense>
   );
 }
 
@@ -75,32 +97,7 @@ function LandingPage() {
     <main className="min-h-screen bg-stone-50 text-stone-950">
       <Header onEarlyAccess={handleEarlyAccess} />
       <HeroSection onEarlyAccess={handleEarlyAccess} />
-      <LazyBelowFold>{sectionContent}</LazyBelowFold>
+      {sectionContent}
     </main>
   );
-}
-
-function LazyBelowFold({ children }: { children: ReactNode }) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "200px 0px", threshold: 0.05 },
-    );
-
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, []);
-
-  return <div ref={ref}>{isVisible ? children : null}</div>;
 }

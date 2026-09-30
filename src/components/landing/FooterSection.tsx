@@ -1,10 +1,10 @@
+import { Link } from "react-router-dom";
 import { PrimaryButton } from "./PrimaryButton";
 import { ScrollReveal } from "../ScrollReveal";
-import logo from "/images/logo.svg";
 
 export function FooterSection({ onEarlyAccess }: { onEarlyAccess: () => void }) {
   return (
-    <footer className="bg-[#750015] px-6 py-16 text-white lg:px-8 relative">
+    <footer className="bg-brand-deep px-6 py-16 text-white lg:px-8 relative">
       <div 
       className="pointer-events-none absolute inset-0 w-full h-full opacity-100 animate-pulse-slow"
         style={{
@@ -25,7 +25,7 @@ export function FooterSection({ onEarlyAccess }: { onEarlyAccess: () => void }) 
         </ScrollReveal>
 
         <ScrollReveal delay={150} className="w-full sm:max-w-[20rem]">
-          <PrimaryButton onClick={onEarlyAccess} variant="ghost" className="w-full flex stretch border-white bg-white text-[#750015] hover:bg-white/10">
+          <PrimaryButton onClick={onEarlyAccess} variant="ghost" className="w-full flex stretch border-white bg-white text-brand-deep hover:border-brand-tint hover:bg-brand-tint">
             Request Invitation
             <span aria-hidden>→</span>
           </PrimaryButton>
@@ -49,16 +49,16 @@ export function FooterSection({ onEarlyAccess }: { onEarlyAccess: () => void }) 
             </div>
             <div className="flex flex-col lg:flex-row flex-wrap justify-center items-start gap-4">
               <a className="transition-opacity hover:opacity-70" href="mailto:hello@vrede.app">Contact</a>
-              <a className="transition-opacity hover:opacity-70" href="/privacy">Privacy Policy</a>
-              <a className="transition-opacity hover:opacity-70" href="/terms">Terms of Use</a>
+              <Link className="transition-opacity hover:opacity-70" to="/privacy">Privacy Policy</Link>
+              <Link className="transition-opacity hover:opacity-70" to="/terms">Terms of Use</Link>
             </div>
             <span>© 2026 Vrede. All rights reserved.</span>
 
             <div className="flex flex-row flex-wrap justify-center items-start gap-4">
-              <a href="https://www.linkedin.com/company/varsigram/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/company/varsigram/" aria-label="Vrede on LinkedIn" target="_blank" rel="noopener noreferrer">
               
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <g clip-path="url(#clip0_5699_19989)">
+                <g clipPath="url(#clip0_5699_19989)">
                   <path d="M15.3125 0H4.6875C2.09867 0 0 2.09867 0 4.6875V15.3125C0 17.9013 2.09867 20 4.6875 20H15.3125C17.9013 20 20 17.9013 20 15.3125V4.6875C20 2.09867 17.9013 0 15.3125 0Z" fill="#750015"/>
                   <path d="M15.3125 0H4.6875C2.09867 0 0 2.09867 0 4.6875V15.3125C0 17.9013 2.09867 20 4.6875 20H15.3125C17.9013 20 20 17.9013 20 15.3125V4.6875C20 2.09867 17.9013 0 15.3125 0Z" fill="white"/>
                   <path d="M14.4321 17.0068H16.719C16.8019 17.0068 16.8814 16.9738 16.94 16.9152C16.9986 16.8567 17.0316 16.7772 17.0316 16.6943L17.0328 11.8629C17.0328 9.33763 16.4886 7.3966 13.5372 7.3966C12.4153 7.35488 11.3573 7.93316 10.7864 8.8988C10.7836 8.90349 10.7793 8.90714 10.7743 8.90918C10.7692 8.91123 10.7636 8.91157 10.7584 8.91015C10.7531 8.90872 10.7484 8.90561 10.7451 8.90129C10.7418 8.89697 10.7399 8.89168 10.7399 8.88622V7.94223C10.7399 7.85935 10.707 7.77986 10.6484 7.72125C10.5897 7.66265 10.5102 7.62972 10.4274 7.62972H8.25705C8.17416 7.62972 8.09467 7.66265 8.03605 7.72125C7.97744 7.77986 7.94451 7.85935 7.94451 7.94223V16.6939C7.94451 16.7767 7.97744 16.8562 8.03605 16.9148C8.09467 16.9734 8.17416 17.0064 8.25705 17.0064H10.5439C10.6267 17.0064 10.7062 16.9734 10.7648 16.9148C10.8235 16.8562 10.8564 16.7767 10.8564 16.6939V12.3678C10.8564 11.1446 11.0884 9.95998 12.6051 9.95998C14.1002 9.95998 14.1195 11.3597 14.1195 12.447V16.6942C14.1195 16.7771 14.1525 16.8566 14.2111 16.9152C14.2697 16.9738 14.3492 17.0068 14.4321 17.0068ZM2.96875 4.65845C2.96875 5.58533 3.73188 6.34799 4.65893 6.34799C5.58575 6.34792 6.34841 5.58479 6.34841 4.65806C6.34825 3.73133 5.58551 2.96875 4.65862 2.96875C3.73149 2.96875 2.96875 3.73157 2.96875 4.65845ZM3.51248 17.0068H5.80233C5.88522 17.0068 5.96472 16.9738 6.02333 16.9152C6.08194 16.8566 6.11487 16.7771 6.11487 16.6942V7.94223C6.11487 7.85935 6.08194 7.77986 6.02333 7.72125C5.96472 7.66265 5.88522 7.62972 5.80233 7.62972H3.51248C3.42959 7.62972 3.3501 7.66265 3.29149 7.72125C3.23287 7.77986 3.19995 7.85935 3.19995 7.94223V16.6942C3.19995 16.7771 3.23287 16.8566 3.29149 16.9152C3.3501 16.9738 3.42959 17.0068 3.51248 17.0068Z" fill="#750015"/>
@@ -73,7 +73,7 @@ export function FooterSection({ onEarlyAccess }: { onEarlyAccess: () => void }) 
 
 
 
-            <a href="http://https://x.com/getvrede" target="_blank" rel="noopener noreferrer">
+            <a href="https://x.com/getvrede" aria-label="Vrede on X" target="_blank" rel="noopener noreferrer">
             
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path d="M15.75 0.9375H18.8171L12.1171 8.61392L20 19.0615H13.8286L8.99143 12.7264L3.46286 19.0615H0.392857L7.55857 10.848L0 0.938928H6.32857L10.6943 6.72838L15.75 0.9375ZM14.6714 17.2217H16.3714L5.4 2.68162H3.57714L14.6714 17.2217Z" fill="currentColor"/>
@@ -85,7 +85,7 @@ export function FooterSection({ onEarlyAccess }: { onEarlyAccess: () => void }) 
             </a>
 
 
-            <a href="https://www.instagram.com/getvrede?stkn=MXRmYzk3a2FwcXQ0Yg==" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/getvrede" aria-label="Vrede on Instagram" target="_blank" rel="noopener noreferrer">
             
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M6.49778 1.66602H13.4983C16.1652 1.66602 18.3321 3.83286 18.3321 6.49974V13.5003C18.3321 14.7823 17.8228 16.0118 16.9163 16.9183C16.0098 17.8248 14.7803 18.334 13.4983 18.334H6.49778C3.8309 18.334 1.66406 16.1672 1.66406 13.5003V6.49974C1.66406 5.21775 2.17333 3.98828 3.07983 3.08178C3.98632 2.17528 5.2158 1.66602 6.49778 1.66602ZM6.3311 3.33282C5.53539 3.33282 4.77227 3.64891 4.20961 4.21157C3.64696 4.77422 3.33086 5.53734 3.33086 6.33306V13.667C3.33086 15.3254 4.67264 16.6672 6.3311 16.6672H13.665C14.4607 16.6672 15.2239 16.3511 15.7865 15.7885C16.3492 15.2258 16.6653 14.4627 16.6653 13.667V6.33306C16.6653 4.67459 15.3235 3.33282 13.665 3.33282H6.3311ZM14.3734 4.58292C14.6497 4.58292 14.9147 4.69267 15.11 4.88804C15.3054 5.0834 15.4152 5.34838 15.4152 5.62467C15.4152 5.90095 15.3054 6.16593 15.11 6.36129C14.9147 6.55666 14.6497 6.66642 14.3734 6.66642C14.0971 6.66642 13.8321 6.55666 13.6368 6.36129C13.4414 6.16593 13.3317 5.90095 13.3317 5.62467C13.3317 5.34838 13.4414 5.0834 13.6368 4.88804C13.8321 4.69267 14.0971 4.58292 14.3734 4.58292ZM9.99806 5.83302C11.1032 5.83302 12.1631 6.27204 12.9446 7.0535C13.726 7.83497 14.1651 8.89486 14.1651 10C14.1651 11.1052 13.726 12.1651 12.9446 12.9465C12.1631 13.728 11.1032 14.167 9.99806 14.167C8.89291 14.167 7.83301 13.728 7.05155 12.9465C6.27008 12.1651 5.83106 11.1052 5.83106 10C5.83106 8.89486 6.27008 7.83497 7.05155 7.0535C7.83301 6.27204 8.89291 5.83302 9.99806 5.83302ZM9.99806 7.49982C9.33497 7.49982 8.69903 7.76323 8.23015 8.23211C7.76128 8.70099 7.49786 9.33692 7.49786 10C7.49786 10.6631 7.76128 11.299 8.23015 11.7679C8.69903 12.2368 9.33497 12.5002 9.99806 12.5002C10.6612 12.5002 11.2971 12.2368 11.766 11.7679C12.2348 11.299 12.4983 10.6631 12.4983 10C12.4983 9.33692 12.2348 8.70099 11.766 8.23211C11.2971 7.76323 10.6612 7.49982 9.99806 7.49982Z" fill="white"/>

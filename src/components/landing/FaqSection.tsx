@@ -70,7 +70,7 @@ function FaqItem({ faq, defaultOpen = false }: { faq: (typeof faqs)[number]; def
     <button
       type="button"
       onClick={() => setOpen((current) => !current)}
-      className="w-full rounded-2xl border border-stone-200 bg-stone-50 p-6 text-left transition hover:border-[#750015]/30 hover:bg-white"
+      className="w-full rounded-2xl border border-stone-200 bg-stone-50 p-6 text-left transition hover:border-brand-deep/30 hover:bg-white"
     >
       <div className="flex items-center justify-between gap-4">
         <span className="text-base font-semibold text-stone-950">{faq.question}</span>

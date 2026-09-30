@@ -1,17 +1,17 @@
-import { useNavigate } from "react-router-dom";
-
-const RED = "#8B0D16";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 export function LearnerSubmittedPage() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  if (!(location.state as { submitted?: boolean } | null)?.submitted) {
+    return <Navigate to="/early-access" replace />;
+  }
 
   return (
     <main className="min-h-screen bg-white text-[#171717]">
       <div className="flex min-h-screen flex-col items-center justify-center text-center">
-        <div
-          className="flex h-12 w-12 items-center justify-center rounded-full text-xl text-white"
-          style={{ backgroundColor: RED }}
-        >
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand text-xl text-white">
           ✓
         </div>
 
@@ -24,8 +24,7 @@ export function LearnerSubmittedPage() {
         <button
           type="button"
           onClick={() => navigate("/")}
-          className="mt-6 h-[34px] rounded-md px-8 text-[10px] font-semibold text-white"
-          style={{ backgroundColor: RED }}
+          className="mt-6 h-[34px] rounded-md bg-brand px-8 text-[10px] font-semibold text-white"
         >
           Done
         </button>

@@ -87,7 +87,7 @@ export function LegalPage({ title, date, intro, sections, artPosition = "left" }
 	return (
 		<div className="legal-page">
 			<style>{`
-				.legal-page { --legal-ink:#211f22; --legal-muted:#656066; --legal-red:#8d001c; --legal-pink:#fff3f5; --legal-active-bg:#fde8ed; min-height:100vh; color:var(--legal-ink); background:#fff; font-family:"Aeonik", ui-sans-serif, system-ui, sans-serif; }
+				.legal-page { --legal-ink:#211f22; --legal-muted:#656066; --legal-red:#8d001c; --legal-pink:#fff3f5; --legal-active-bg:#fde8ed; min-height:100vh; color:var(--legal-ink); background:#fff; font-family:"Google Sans Variable", ui-sans-serif, system-ui, sans-serif; }
 				.legal-page * { box-sizing:border-box; }
 				.legal-hero { display:flex; flex-direction:row; align-items:center; justify-content:center; gap:clamp(32px, 6vw, 100px); min-height:clamp(220px, 26vw, 320px); padding:clamp(32px, 5vw, 64px) clamp(24px, 6vw, 72px); }
 				.legal-hero-art { flex:0 1 320px; width:min(280px, 32vw); }

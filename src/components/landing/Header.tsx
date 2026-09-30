@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import { PrimaryButton } from "./PrimaryButton";
-import logo from "../../../public/logo.svg"
+
+const logo = "/logo.svg";
 
 export function Header({ onEarlyAccess }: { onEarlyAccess: () => void }) {
   return (
@@ -7,7 +9,7 @@ export function Header({ onEarlyAccess }: { onEarlyAccess: () => void }) {
       <div className="mx-auto flex w-full items-center justify-between px-6 py-4 lg:px-8">
         <div className="flex items-center gap-3">
           <div className="place-items-center text-white">
-            <a href="/"><img src={logo} alt="Vrede Logo" className="size-6" /></a>
+            <Link to="/" aria-label="Vrede home"><img src={logo} alt="" className="size-6" /></Link>
           </div>
           <div>
             <p className="text-lg font-bold text-stone-950">Vrede</p>

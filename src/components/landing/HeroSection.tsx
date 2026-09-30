@@ -31,11 +31,13 @@ export function HeroSection({ onEarlyAccess }: { onEarlyAccess: () => void }) {
           <PrimaryButton onClick={onEarlyAccess} className="w-full">Get Early Access <span aria-hidden>→</span></PrimaryButton>
         </ScrollReveal>
 
-        <ScrollReveal delay={300} direction="fade">
+        <ScrollReveal direction="fade">
           <div className="relative md:w-full bg-transparent shadow-[0_24px_60px_rgba(15,23,42,0.10)]">
             <div className="animate-hero-veil absolute inset-0 bg-transparent" />
              <img
-            src="/images/joyful-businessman-reacting-good-news-1-5695-25933.jpg"
+            src="/images/joyful-businessman-reacting-good-news.svg"
+            width={1312}
+            height={561}
             alt="Educator using Vrede"
             fetchPriority="high"
             loading="eager"
@@ -122,7 +124,7 @@ function getBadgeDirection(index: number) {
 }
 
 function getBadgeTiming(index: number) {
-  const popDelay = 900 + index * 140;   // 900 instead of 120
+  const popDelay = 400 + index * 100;
   const bobDelay = popDelay + 700;
   const driftDelay = popDelay + 1400;
 

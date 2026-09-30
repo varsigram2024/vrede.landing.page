@@ -1,34 +1,12 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Aeonik";
-  src: url("./fonts/Aeonik-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Aeonik";
-  src: url("./fonts/Aeonik-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Aeonik";
-  src: url("./fonts/Aeonik-Light.woff2") format("woff2");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
 @theme {
-    /* This overrides Tailwind's default sans font globally */
-    --font-sans: "Aeonik", ui-sans-serif, system-ui, sans-serif;
-    /* Optional: expose a utility class like `font-aeonik` */
-    --font-aeonik: "Aeonik", sans-serif;
+    --font-sans: "Google Sans Variable", ui-sans-serif, system-ui, sans-serif;
+
+    --color-brand: #8B0D16;
+    --color-brand-dark: #760b12;
+    --color-brand-deep: #750015;
+    --color-brand-tint: #fff1f2;
 }
 
 html, body {
@@ -39,7 +17,7 @@ html, body {
   overflow-x: hidden;
   /* You can drop font-family here since --font-sans handles it, 
      but keeping it doesn't hurt */
-  font-family: "Aeonik", sans-serif;
+  font-family: "Google Sans Variable", ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Hero section vertical + horizontal rhythm */
