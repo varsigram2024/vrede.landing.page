@@ -25,7 +25,7 @@ export function FooterSection({ onEarlyAccess }: { onEarlyAccess: () => void }) 
         </ScrollReveal>
 
         <ScrollReveal delay={150} className="w-full sm:max-w-[20rem]">
-          <PrimaryButton onClick={onEarlyAccess} variant="ghost" className="w-full flex stretch border-white bg-white text-brand-deep hover:bg-white/10">
+          <PrimaryButton onClick={onEarlyAccess} variant="ghost" className="w-full flex stretch border-white bg-white text-brand-deep hover:border-brand-tint hover:bg-brand-tint">
             Request Invitation
             <span aria-hidden>→</span>
           </PrimaryButton>

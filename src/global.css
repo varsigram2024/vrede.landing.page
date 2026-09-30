@@ -62,12 +62,12 @@
 }
 
 .animate-hero-image {
-  animation: hero-image-in 2100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: hero-image-in 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
   will-change: transform, filter, opacity;
 }
 
 .animate-hero-veil {
-  animation: hero-veil-in 900ms ease-out 200ms both;
+  animation: hero-veil-in 500ms ease-out 100ms both;
 }
 
 @media (prefers-reduced-motion: reduce) {

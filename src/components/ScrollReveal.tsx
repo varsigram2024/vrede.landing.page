@@ -1,8 +1,4 @@
-import { type ReactNode, useLayoutEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { type ReactNode, useEffect, useRef, useState } from "react";
 
 type ScrollRevealProps = {
   children: ReactNode;
@@ -11,6 +7,14 @@ type ScrollRevealProps = {
   direction?: "up" | "down" | "left" | "right" | "fade";
 };
 
+const directionClass = {
+  up: "",
+  down: "scroll-reveal-down",
+  left: "scroll-reveal-left",
+  right: "scroll-reveal-right",
+  fade: "scroll-reveal-fade",
+} as const;
+
 export function ScrollReveal({
   children,
   className = "",
@@ -18,56 +22,41 @@ export function ScrollReveal({
   direction = "up",
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const element = ref.current;
     if (!element) return;
 
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    if (prefersReducedMotion) {
-      gsap.set(element, { autoAlpha: 1, clearProps: "transform" });
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !("IntersectionObserver" in window)
+    ) {
+      setIsVisible(true);
       return;
     }
 
-    const offsets = {
-      up: { x: 0, y: 32 },
-      down: { x: 0, y: -32 },
-      left: { x: -40, y: 0 },
-      right: { x: 40, y: 0 },
-      fade: { x: 0, y: 0 },
-    } as const;
-    const offset = offsets[direction];
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -14% 0px" },
+    );
 
-    const context = gsap.context(() => {
-      gsap.fromTo(
-        element,
-        { autoAlpha: 0, ...offset },
-        {
-          autoAlpha: 1,
-          x: 0,
-          y: 0,
-          duration: 0.8,
-          delay: delay / 1000,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: element,
-            start: "top 86%",
-            once: true,
-          },
-        },
-      );
-    }, element);
-
-    return () => context.revert();
-  }, [delay, direction]);
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div
       ref={ref}
-      className={`scroll-reveal ${className}`}
+      className={`scroll-reveal ${directionClass[direction]} ${
+        isVisible ? "scroll-reveal-visible" : ""
+      } ${className}`}
+      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}
     </div>

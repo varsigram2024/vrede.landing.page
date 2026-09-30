@@ -77,6 +77,8 @@ export function TeachingCardsSection() {
                     <img
                       src={card.mockupImage}
                       alt={`${card.title} app screen`}
+                      loading="lazy"
+                      decoding="async"
                       className="bottom-0 block"
                     />
                   </div>
