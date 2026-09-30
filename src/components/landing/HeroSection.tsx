@@ -35,11 +35,9 @@ export function HeroSection({ onEarlyAccess }: { onEarlyAccess: () => void }) {
           <div className="relative md:w-full bg-transparent shadow-[0_24px_60px_rgba(15,23,42,0.10)]">
             <div className="animate-hero-veil absolute inset-0 bg-transparent" />
              <img
-            src="/images/hero-1312.webp"
-            srcSet="/images/hero-640.webp 640w, /images/hero-1312.webp 1312w"
-            sizes="(min-width: 1024px) 100vw, 100vw"
+            src="/images/joyful-businessman-reacting-good-news.svg"
             width={1312}
-            height={699}
+            height={561}
             alt="Educator using Vrede"
             fetchPriority="high"
             loading="eager"
